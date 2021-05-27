@@ -17,4 +17,6 @@ for i in range(1,10001):
     else :
         print(i)
         
+#시간초과
+        
     
