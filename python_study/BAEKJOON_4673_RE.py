@@ -1,15 +1,18 @@
 def d(n):
-    result = n
-    for i in list(str(n)):
-        result += int(i)
-    return result
+    next_n = n
+    for str_num in str(n):
+        next_n += int(str_num)
+    return next_n
 
 remove_num = []
-for cnt in range(10001):
-    remove_num.append(d(cnt))
-
-for cnt in range(1,10000):
-    if cnt in set(remove_num):
+for num in range(10001):
+    remove_num.append(d(num)) # 1~10000까지 d(n) 함수에 넣어 셀프넘버가 아닌 수를 remove_num 리스트에
+    
+for num in range(10001):
+    if num in set(remove_num):
         continue
     else:
-        print(cnt)
+        if num > 10000:
+            continue
+        else:
+            print(num)
