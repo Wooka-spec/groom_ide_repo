@@ -1,25 +1,24 @@
 N = int(input())
 
-def one_number_check(n): #세자리 이상인 한수를 찾기위한 함수
-    n_string = str(n)
-    boolean = True
-    gap = int(n_string[1]) - int(n_string[0])
-    
-    for i in range(1, len(n_string)):
-        if int(n_string[i+1]) - int(n_string[i]) == gap:
-            continue
-        else:
-            boolean = False
-            break
-    
-    if boolean == True:
-        return n
+cnt = 0
 
-one_number_list = []
 for i in range(1, N+1):
-    if i < 100 :
-        one_number_list.append(i)
+    if len(str(i)) <= 2:
+        cnt += 1
     else:
-        one_number_list.append(one_number_check(i))
-
-print(len(one_number_list)+1)
+        string_num = str(i)
+        is_True = True
+        gap = int(string_num[1]) - int(string_num[0])
+        for j in range(2, len(string_num)):
+            if int(string_num[j]) - int(string_num[j-1]) == gap:
+                continue
+            else:
+                is_True = False
+                break
+        if is_True == True:
+            cnt += 1
+        
+print(cnt)
+                
+            
+            
