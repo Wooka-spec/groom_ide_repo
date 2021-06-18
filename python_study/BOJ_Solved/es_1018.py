@@ -43,12 +43,12 @@ def trans_list(chess_board):
                               ["W", "B", "W", "B", "W", "B", "W", "B"]]
                           
     
-    for row in range(8):
-        for colum in range(8):
-            if chess_board[row][colum] != chess_list_start_white[row][colum]:
-                chess_board[row][colum] = chess_list_start_white[row][colum] 
-                cnt += 1
-    minimum = cnt
+#    for row in range(8):
+#        for colum in range(8):
+#            if chess_board[row][colum] != chess_list_start_white[row][colum]:
+#                chess_board[row][colum] = chess_list_start_white[row][colum] 
+#                cnt += 1
+#    minimum = cnt
     
     cnt = 0   
     for row in range(8):
@@ -57,17 +57,20 @@ def trans_list(chess_board):
                 chess_board[row][colum] = chess_list_start_black[row][colum] 
                 cnt += 1
                 
-    if cnt < minimum:
-        minimum = cnt
+#    if cnt > minimum:
+    minimum = cnt
     return minimum #체스판의 왼쪽 끝이 W, B 두경우 일때 체스판형식으로 변경하고 두경우 중 최솟값을 반환하는 함수 
     
 result_minimum = 99999
+board_88_colum = []
 board_88 = []
+miniminmum = 0
 
 for i in range(M-7): # 이차원 배열 슬라이싱사용해서 8*8 배열을 생성하고, trans_list 함수사용해서 리턴값의 최솟값을 저장
     for j in range(N-7):
         for k in range(8):
-            board_88.append(board[i+k][j:j+7])
+            board_88.append(board[i+k][j:j+8])
+        print(board_88)
         if trans_list(board_88) < result_minimum:
             result_minimum = trans_list(board_88)
         board_88 = []
