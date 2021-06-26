@@ -1,18 +1,17 @@
 test_case = []
 
-test_case_num = int(input())
-
-for i in range(test_case_num):
+for i in range(int(input())):
     case = list(map(int, input().split()))
     test_case.append(case)
     
+f = 0
+ho = 0
+
 for i in range(len(test_case)):
-    if test_case[i][0] % test_case[i][2] == 0:
-        f = 232
-        ho = 12
+    if test_case[i][2] % test_case[i][0] == 0:
+        f = test_case[i][0] * 100
+        ho = test_case[i][2] // test_case[i][0]
     else:
-        f = test_case[i][2] % test_case[i][0] * 100
+        f = (test_case[i][2] % test_case[i][0]) * 100
         ho = test_case[i][2] // test_case[i][0] + 1
-    
     print(f + ho)
-        
