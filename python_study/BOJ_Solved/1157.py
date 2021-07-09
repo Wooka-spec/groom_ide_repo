@@ -1,12 +1,12 @@
-N = int(input())
+string = input().lower()
+string_set = list(set(string))
+cnt = []
 
-score_list = input().split()
-for i in range(N):
-    score_list[i] = int(score_list[i])
-high_score = max(score_list)
-sum_score = 0
-
-for i in score_list:
-    sum_score += i/high_score*100
+for word in string_set:
+    count = string.count(word)
+    cnt.append(count)
     
-print(sum_score / 3)
+if cnt.count(max(cnt)) >= 2:
+    print('?')
+else:
+    print(string_set[(cnt.index(max(cnt)))].upper())

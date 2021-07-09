@@ -1,3 +1,9 @@
+import typing from Sequence, MutableSequence
+
+def merge(a:Sequnce, b:Sequence, c:MutableSequence) -> None:
+    
+
+
 N = int(input())
 num_list = []
 
